@@ -32,9 +32,9 @@ class FiguresController < ApplicationController
     erb :'/figures/edit'
   end
 
-  post '/figures/:id/edit' do
+  post '/figures/:id' do
     @figure = Figure.find(params[:id])
-    @figure.update(params[:id])
+    @figure.update(params[:figure])
 
     @figure.title = Title.find(name: params[:title][:name])
     @figure.landmark = Landmark.find(name: params[:landmark][:name])
